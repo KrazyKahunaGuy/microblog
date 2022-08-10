@@ -26,7 +26,7 @@ export default class PostsController {
 
     @Put(':id')
     async replacePost(@Param('id') id: string, @Body() post: UpdatePostDto) {
-        return this.postsService.replacePost(id, post); // TODO: Implement PostsService.replacePost
+        return this.postsService.replacePost(Number(id), post); // TODO: Implement PostsService.replacePost
     }
 
     @Delete(':id')
