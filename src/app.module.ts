@@ -4,9 +4,11 @@ import * as Joi from '@hapi/joi';
 
 import { PostsModule } from './posts/posts.module';
 import { DatabaseModule } from './database/database.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
-  imports: [PostsModule,
+  imports: [
+    PostsModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         POSTGRES_HOST: Joi.string().required(),
@@ -14,9 +16,11 @@ import { DatabaseModule } from './database/database.module';
         POSTGRES_USER: Joi.string().required(),
         POSTGRES_PASSWORD: Joi.string().required(),
         POSTGRES_DB: Joi.string().required(),
+        SALT_ROUNDS: Joi.number().required(),
         PORT: Joi.number(),
       })
     }),
+    AuthenticationModule,
     DatabaseModule],
   controllers: [],
   providers: [],
