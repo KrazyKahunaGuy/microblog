@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpCode, Post, Req, Res, UseGuards } from "@nestjs/common";
-import { response, Response } from "express";
+import { Response } from "express";
 
 import { AuthenticationService } from "./authentication.service";
 import { LocalAuthenticationGuard } from "./localAuthentication.guard";
